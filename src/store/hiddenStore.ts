@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store'
 
 
-const hidden = writable(false);
+const hidden = writable(true);
 
 
 export default hidden;

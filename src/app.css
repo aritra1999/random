@@ -19,11 +19,15 @@ html, body {
 }
 
 input, textarea {
-    @apply px-6 py-4 bg-slate-50 rounded-lg border-[3px] border-slate-100 hover:border-black active:border-black w-full resize-none;
+    @apply px-4 py-3 my-2 bg-slate-50 rounded-lg border-[3px] border-slate-100 hover:border-black active:border-black w-full resize-none;
+}
+
+label {
+    @apply mb-2;
 }
 
 .submit-button {
-    @apply px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg flex items-center mx-2;
+    @apply px-6 py-2 bg-black hover:bg-slate-900 text-white font-semibold rounded-lg flex items-center mx-2;
 }
 
 .item-heading {
