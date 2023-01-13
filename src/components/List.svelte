@@ -4,7 +4,7 @@
     
 </script>
 
-<div class="columns-3 p-4">
+<div class="grid sm:grid-cols-2 md:grid-cols-3 grid-cols-1">
     {#each items as item}
         <ListItem item={item} />
     {/each}
