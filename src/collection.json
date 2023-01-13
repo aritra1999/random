@@ -1,0 +1,23 @@
+{
+    "links": [
+        {
+            "title": "AboutMe",
+            "link": "https://aritra1999.github.io",
+            "componentFile": "aboutMe.svelte",
+            "component": "AboutMe"
+        }
+    ],
+    "calculators": [
+        {
+            "title": "BASE64 Encoder",
+            "componentFile": "base64Encoder.svelte",
+            "component": "Base64Encoder"
+        },
+        {   
+            "title": "BASE64 Decoder",
+            "componentFile": "base64Decoder.svelte",
+            "component": "Base64Decoder"
+        }
+    ],
+    "games": []
+}
