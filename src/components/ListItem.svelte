@@ -9,10 +9,7 @@
 
     async function triggerComponent() {
         $hidden = false;
-
-        console.log(item.component)
         $component = (await import(`../items/${item.componentFile}`)).default;
-
     }
 </script> 
 
