@@ -2,22 +2,23 @@
     "links": [
         {
             "title": "AboutMe",
-            "link": "https://aritra1999.github.io",
-            "componentFile": "aboutMe.svelte",
-            "component": "AboutMe"
+            "path": "https://aritra1999.github.io"
         }
     ],
     "calculators": [
         {
             "title": "BASE64 Encoder",
-            "componentFile": "base64Encoder.svelte",
-            "component": "Base64Encoder"
+            "path": "/base64Encoder"
         },
         {   
             "title": "BASE64 Decoder",
-            "componentFile": "base64Decoder.svelte",
-            "component": "Base64Decoder"
+            "path": "/base64Decoder"
         }
     ],
-    "games": []
+    "games": [
+        {
+            "title": "Tic Tac Toe",
+            "path": "/ticTacToe"
+        }
+    ]
 }

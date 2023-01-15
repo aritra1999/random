@@ -1,7 +1,8 @@
 <script lang="ts">
+	import type { Item } from '../types';
     import List from '../components/List.svelte';
 
-    export let links;
+    export let links: Item[];
 
 </script>
 

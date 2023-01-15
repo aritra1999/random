@@ -1,6 +1,8 @@
 <script lang="ts">
+	import type { Item } from '../types';
     import ListItem from './ListItem.svelte';
-    export let items; 
+
+    export let items: Item[]; 
     
 </script>
 
