@@ -1,6 +1,8 @@
 <script lang="ts">
+	import type { Item } from '../types';
     import List from '../components/List.svelte';
-    export let calculators;
+    
+    export let calculators: Item[];
     
 </script>
 <div class="group-heading">
