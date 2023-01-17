@@ -2,23 +2,23 @@
     "links": [
         {
             "title": "AboutMe",
-            "path": "https://aritra1999.github.io"
+            "path": "aboutMe"
         }
     ],
     "calculators": [
         {
             "title": "BASE64 Encoder",
-            "path": "/base64Encoder"
+            "path": "base64Encoder"
         },
         {   
             "title": "BASE64 Decoder",
-            "path": "/base64Decoder"
+            "path": "base64Decoder"
         }
     ],
     "games": [
         {
             "title": "Tic Tac Toe",
-            "path": "/ticTacToe"
+            "path": "ticTacToe"
         }
     ]
 }
