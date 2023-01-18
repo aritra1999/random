@@ -6,7 +6,7 @@
     
     const links = collection.links;
     const games = collection.games; 
-    const calculators = collection.calculators; 
+    const calculators = collection.apps; 
     
 </script>
 

@@ -5,7 +5,7 @@
             "path": "aboutMe"
         }
     ],
-    "calculators": [
+    "apps": [
         {
             "title": "BASE64 Encoder",
             "path": "base64Encoder"
@@ -13,6 +13,10 @@
         {   
             "title": "BASE64 Decoder",
             "path": "base64Decoder"
+        },
+        {
+            "title": "Relocation 🇩🇪",
+            "path": "relocation-germany"
         }
     ],
     "games": [
