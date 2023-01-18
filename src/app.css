@@ -19,11 +19,19 @@ html, body {
 }
 
 input, textarea {
-    @apply px-4 py-3 my-2 bg-slate-50 rounded-lg border-[3px] border-slate-100 hover:border-black active:border-black w-full resize-none;
+    @apply px-4 py-2 bg-slate-50 rounded-lg border-[3px] border-slate-100 hover:border-black active:border-black w-full resize-none !important;
+}
+
+.input-container {
+    @apply px-4 py-3 my-2 bg-slate-50 rounded-lg border-[3px] border-slate-100 hover:border-black active:border-black w-full resize-none !important;
 }
 
 label {
     @apply mb-2;
+}
+
+hr {
+    @apply mt-4 mb-6;
 }
 
 .submit-button {
@@ -32,4 +40,12 @@ label {
 
 .item-heading {
     @apply text-xl font-bold my-2; 
+}
+
+td, th {
+    @apply p-4;
+}
+
+th {
+    @apply text-left;
 }
