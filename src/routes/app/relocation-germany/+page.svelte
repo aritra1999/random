@@ -1,8 +1,12 @@
 <script lang="ts">
-    import { Popover } from 'flowbite-svelte'
+    import { Modal } from 'flowbite-svelte'
+
     import Loading from '../../../components/Loading.svelte';
 
     import { fetchConvertionRate, fetchTax, parseDeductions } from './calculator';
+
+    let expenseModal = false;
+    let deductionsModal = false;
     
     let loading:boolean = false;
     let result: boolean = false; 
@@ -72,7 +76,7 @@
             </div>
         </div>
     {/if }
-    <label for="salary">💶 salary</label>
+    <label for="salary">🇩🇪 salary -  💶/year</label>
     <div class="flex my-2">
         <input type="number" data-type="currency" placeholder="€4.000" bind:value={salary} required/>
         <button class="submit-button" on:click={() => {calculate()}}>
@@ -143,10 +147,9 @@
                             </tr>
                             <tr>
                                 <th scope="row" class="font-medium text-gray-900 whitespace-nowrap bg-red-50">
-                                    tax & insurence deduciton 
-                                    <button id="taxbreaddownpopover">
+                                    tax & insurance deduciton 
+                                    <button on:click={() => (deductionsModal = true)}>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 ml-1"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 01-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 01-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 01-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584zM12 18a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" /></svg>
-                                        <span class="sr-only">Show information</span>
                                     </button>
                                 </th>
                                 <td >
@@ -182,9 +185,8 @@
                             <tr class="border-b border-gray-200">
                                 <th scope="row" class="font-medium text-gray-900 whitespace-nowrap bg-rose-50 ">
                                     expenses
-                                    <button id="expensebreakdownpopover">
+                                    <button on:click={() => (expenseModal = true)}>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 ml-1"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 01-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 01-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 01-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584zM12 18a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd"/></svg>
-                                        <span class="sr-only">show information</span>
                                     </button>
                                 </th>
                                 <td>
@@ -225,12 +227,14 @@
     {/if}
 </div>
 
-<Popover triggeredBy="#taxbreaddownpopover" class="w-fit text-sm font-light text-gray-500 bg-white" placement="top">
+
+<Modal title="deductions details" bind:open={deductionsModal} placement="top-center" autoclose>
     <div class="p-3 space-y-2">
         {@html taxBreakDown}
     </div>
-</Popover>
-<Popover triggeredBy="#expensebreakdownpopover" class="w-fit text-sm font-light text-gray-500 bg-white" placement="top">
+</Modal>
+
+<Modal title="expense breakdown" bind:open={expenseModal} placement="top-center" autoclose>
     <div class="p-3 space-y-2">
         <table>
             <thead class="bg-gray-50">
@@ -286,4 +290,4 @@
             </tbody>
         </table>
     </div>
-</Popover> 
+</Modal>
