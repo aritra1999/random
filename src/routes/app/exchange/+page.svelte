@@ -186,7 +186,7 @@
 </script>
 <div class="w-full flex items-center justify-center">
 	<div>
-		
+		<input type="text">
 	</div>
 </div>
 <div class="flex justify-center">
