@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 
 	let rates: Record<string, number> = {};
+
 	const BASE = 'USD';
 
     function getFlagEmoji(countryCode: string) {
@@ -185,16 +186,21 @@
 	});
 </script>
 <div class="w-full flex items-center justify-center">
-	<div>
+	<div class="flex">
 		<input type="text">
+		<input type="text">
+		<button class="submit-button">exchange</button>
 	</div>
 </div>
+<hr>
 <div class="flex justify-center">
     <div class="flex" style="flex-flow: row wrap">
         {#each Object.entries(rates) as [countryCode, rate]}
             <div class="flex items-center m-2 py-1 px-2  border-[3px] border-slate-700 bg-slate-50 rounded-lg space-x-2 active:bg-blue-700 active:text-white focus:bg-blue-700 focus:text-white">
                 <div>{getFlagEmoji(countryCode)}</div>
-                <input type="text" contenteditable="true" on:keydown={() => updateAllCurrencies(countryCode)} value={new Intl.NumberFormat('en-US', { style: 'currency', currency: countryCode }).format(rate)}/>  
+                <div>
+					{new Intl.NumberFormat('en-US', { style: 'currency', currency: countryCode }).format(rate)}
+				</div>
             </div>
         {/each}
     </div>

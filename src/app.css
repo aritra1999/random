@@ -19,7 +19,7 @@ html, body {
 }
 
 input, textarea {
-    @apply px-4 py-2 bg-slate-50 rounded-lg border-[3px] border-slate-100 hover:border-black active:border-[3px] active:border-black w-full resize-none !important;
+    @apply px-4 py-2 bg-slate-50 rounded-lg border-[3px] border-slate-100 hover:border-black active:border-[3px] active:border-black resize-none !important;
 }
 
 .input-container {
