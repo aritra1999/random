@@ -1,19 +1,28 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { countryCurrencyLocales } from './countryCurrencyLocals';
+	import { getListItemFromCountryLocal } from './utils';
 
 	let rates: Record<string, number> = {};
-
+	let showInputCurrencyLocaleDropDown = false;
+	let inputCurrencyLocale = '';
+	let loading = false; 
 	const BASE = 'USD';
+	
+    $: countryCurrencyLocaleList = countryCurrencyLocales.filter(item => item.indexOf(inputCurrencyLocale.toLocaleUpperCase()) !== -1).slice(0, 10);
 
-    function getFlagEmoji(countryCode: string) {
-        return countryCode.substring(0,2).toUpperCase().replace(/./g, (char: string) => 
-            String.fromCodePoint(127397 + char.charCodeAt(0))
-        );
-    }
+	function updateDropDown() {
+		showInputCurrencyLocaleDropDown = inputCurrencyLocale.length >= 1 ? true : false;
+	}
 
-    function updateAllCurrencies(updatedCountryCode: string) {
-        console.log(updatedCountryCode);
-    }
+	function selectCountryLocale(item: string) {
+		inputCurrencyLocale = getListItemFromCountryLocal(item);
+		showInputCurrencyLocaleDropDown = false;
+	}
+
+	function cleanInputOnFocus() {
+		inputCurrencyLocale = inputCurrencyLocale.slice(inputCurrencyLocale.length - 4, inputCurrencyLocale.length-1);
+	}
 
 	onMount(async function () {
 		rates = {
@@ -184,16 +193,39 @@
 		// const response = await fetch(url);
 		// rates = (await response.json()).conversion_rates;
 	});
+
 </script>
-<div class="w-full flex items-center justify-center">
-	<div class="flex">
-		<input type="text">
-		<input type="text">
-		<button class="submit-button">exchange</button>
+<div class="flex flex-col space-y-6">
+	<div class="w-full flex items-center justify-center">
+		<div class="flex space-x-2">
+			<div class="w-48">
+				<div class="relative">
+					<input placeholder="INR" class="w-full uppercase" on:focus={() => cleanInputOnFocus()} on:keyup={() => updateDropDown()} type="text" bind:value={inputCurrencyLocale}/>
+					{#if showInputCurrencyLocaleDropDown}
+						<div class="w-48 absolute flex flex-col bg-slate-50">
+							{#each countryCurrencyLocaleList as item}
+								<button class="w-full p-2" on:click={() => selectCountryLocale(item)}>
+									{getListItemFromCountryLocal(item)}
+								</button>
+							{/each}
+						</div>
+					{/if}
+				</div>
+			</div>
+			<input type="number" placeholder="enter amount"  required/>
+			<button class="submit-button">
+				exchange
+			</button>
+		</div>
+	</div>
+	<div>
+		<div class="flex items-center space-x-2">
+			<input class="w-48" type="text" placeholder="enter country code" required/>
+			<button class="submit-button">add</button>
+		</div>
 	</div>
 </div>
-<hr>
-<div class="flex justify-center">
+<!-- <div class="flex justify-center">
     <div class="flex" style="flex-flow: row wrap">
         {#each Object.entries(rates) as [countryCode, rate]}
             <div class="flex items-center m-2 py-1 px-2  border-[3px] border-slate-700 bg-slate-50 rounded-lg space-x-2 active:bg-blue-700 active:text-white focus:bg-blue-700 focus:text-white">
@@ -204,4 +236,4 @@
             </div>
         {/each}
     </div>
-</div>
+</div> -->
