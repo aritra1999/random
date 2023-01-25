@@ -6,6 +6,7 @@ html, body {
     font-family: 'Inter', sans-serif;
 }
 
+
 .group-heading {
     @apply flex items-center space-x-2 font-extrabold text-3xl m-3;
 }
@@ -19,7 +20,7 @@ html, body {
 }
 
 input, textarea {
-    @apply px-4 py-2 bg-slate-50 rounded-lg border-[3px] border-slate-100 hover:border-black active:border-[3px] active:border-black w-full resize-none !important;
+    @apply px-4 py-2 bg-slate-50 rounded-lg border-[3px] border-slate-100 hover:border-black active:border-[3px] active:border-black resize-none !important;
 }
 
 .input-container {
@@ -35,7 +36,7 @@ hr {
 }
 
 .submit-button {
-    @apply px-6 py-2 bg-black hover:bg-slate-900 text-white font-semibold rounded-lg flex items-center mx-2;
+    @apply px-6 py-2 bg-black hover:bg-slate-900 text-white font-semibold rounded-lg flex items-center;
 }
 
 .item-heading {
