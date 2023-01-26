@@ -1,57 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { countryCurrencyLocales } from './countryCurrencyLocals';
-	import { getListItemFromCountryLocal } from './utils';
+	import { getCountryCurrencySymbol, getListItemFromCountryLocal } from './utils';
 
 	let rates: Record<string, number> = {};
-	let showInputCurrencyLocaleDropDown = false;
-	let showInputCurrencyLocaleDropDownSelection = false;
-	let inputCurrencyLocale = '';
-	let selectionCurrencyLocale = '';
-	let selectedCurrencies = ['INR'];
-	const BASE = 'USD';
-
-	let loading = false; 
+	const desiredCurrencies = ['INR', 'EUR', 'USD', 'JPY', 'CAD']
 	
-    $: countryCurrencyLocaleList = countryCurrencyLocales.filter(item => item.indexOf(inputCurrencyLocale.toLocaleUpperCase()) !== -1).slice(0, 10);
-	$: selectionCountryCurrencyLocaleList = countryCurrencyLocales.filter(item => item.indexOf(selectionCurrencyLocale.toLocaleUpperCase()) !== -1).slice(0, 10);
-
-	function updateDropDown() {
-		showInputCurrencyLocaleDropDown = inputCurrencyLocale.length >= 1 ? true : false;
-	}
-
-	function updateDropDownSelection() {
-		showInputCurrencyLocaleDropDownSelection = selectionCurrencyLocale.length >= 1 ? true : false;
-	}
-
-	function selectCountryLocale(item: string) {
-		inputCurrencyLocale = getListItemFromCountryLocal(item);
-		showInputCurrencyLocaleDropDown = false;
-	}
-
-	function selectCountryLocaleSelection(item: string) {
-		selectionCurrencyLocale = getListItemFromCountryLocal(item);
-		showInputCurrencyLocaleDropDownSelection = false;
-	}
-
-	function cleanInputOnFocus() {
-		inputCurrencyLocale = inputCurrencyLocale.slice(inputCurrencyLocale.length - 4, inputCurrencyLocale.length-1);
-	}
-
-	function cleanInputOnFocusSelection() {
-		selectionCurrencyLocale = selectionCurrencyLocale.slice(selectionCurrencyLocale.length - 4, selectionCurrencyLocale.length-1);
-	}
-
-	function removeCountryFromSelectedList(currencyCode: string) {
-		selectedCurrencies = selectedCurrencies.filter(item => item !== currencyCode);
-	}
-
-	function appendCurrencyToSelectionList() {
-		const code = selectionCurrencyLocale.slice(selectionCurrencyLocale.length - 4, selectionCurrencyLocale.length-1);
-		selectedCurrencies = [...selectedCurrencies, code];		
-		selectionCurrencyLocale = '';
-	}
-
+	
 	onMount(async function () {
 		rates = {
 			INR: 1,
@@ -222,79 +176,20 @@
 		// rates = (await response.json()).conversion_rates;
 	});
 
-
-
 </script>
-<div class="flex flex-col space-y-6">
-	<div class="w-full flex items-center justify-center">
-		<div class="flex space-x-2">
-			<div class="w-48">
-				<div class="relative">
-					<input placeholder="₹ INR" class="w-full uppercase" on:focus={() => cleanInputOnFocus()} on:keyup={() => updateDropDown()} type="text" bind:value={inputCurrencyLocale}/>
-					{#if showInputCurrencyLocaleDropDown}
-						<div class="w-48 absolute flex flex-col bg-slate-50">
-							{#each countryCurrencyLocaleList as item}
-								<button class="w-full p-2" on:click={() => selectCountryLocale(item)}>
-									{getListItemFromCountryLocal(item)}
-								</button>
-							{/each}
-						</div>
-					{/if}
+
+<div class="grid sm:grid-cols-3 grid-cols-1 gap-4">
+	{#each desiredCurrencies as desiredCurrency}
+		<div class="p-4 border-[3px] border-slate-100 w-full rounded-lg">
+			<div class="mb-2">
+				{getListItemFromCountryLocal(desiredCurrency)}
+			</div>
+			<div class="flex items-center">
+				<div class="px-4 py-2 bg-blue-50 mr-2 border-[3px] border-blue-600 rounded-lg text-blue-600">
+					{getCountryCurrencySymbol(desiredCurrency)}
 				</div>
+				<input type="text" value="{rates[desiredCurrency]}" />
 			</div>
-			<input type="number" placeholder="enter amount"  required/>
-			<button class="submit-button flex space-x-4">
-				<div>exchange</div>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-				</svg>				  
-			</button>
 		</div>
-	</div>
-	<div class="flex space-x-2">
-		{#each selectedCurrencies as selectedCurrency}
-			<div class="flex space-x-4 items-center justify-between px-4 py-2 bg-slate-50 rounded-lg border-[3px] border-slate-100">
-				<div>{getListItemFromCountryLocal(selectedCurrency)}</div>
-				<button on:click={() => removeCountryFromSelectedList(selectedCurrency)}>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-					</svg>	
-				</button>			  
-			</div>
-		{/each}
-		<div class="flex items-center space-x-2">
-			<div class="relative w-64">
-				<input 
-					type="text"
-					placeholder="$ USD" 
-					class="w-full uppercase" 
-					on:focus={() => cleanInputOnFocusSelection()} 
-					on:keyup={() => updateDropDownSelection()} 
-					bind:value={selectionCurrencyLocale}
-				/>
-				{#if showInputCurrencyLocaleDropDownSelection}
-					<div class="w-full absolute flex flex-col bg-slate-50 px-2 mt-2 border-[3px] border-slate-100 rounded divide-y z-50"  style="flex-flow: row wrap">
-						{#each selectionCountryCurrencyLocaleList as item}
-							<button class="w-full p-3 text-left" on:click={() => selectCountryLocaleSelection(item)}>
-								{getListItemFromCountryLocal(item)}
-							</button>
-						{/each}
-					</div>
-				{/if}
-			</div>
-			<button class="submit-button" on:click={() => appendCurrencyToSelectionList()}>add</button>
-		</div>
-	</div>
+	{/each}
 </div>
-<!-- <div class="flex justify-center">
-    <div class="flex" style="flex-flow: row wrap">
-        {#each Object.entries(rates) as [countryCode, rate]}
-            <div class="flex items-center m-2 py-1 px-2  border-[3px] border-slate-700 bg-slate-50 rounded-lg space-x-2 active:bg-blue-700 active:text-white focus:bg-blue-700 focus:text-white">
-                <div>{getFlagEmoji(countryCode)}</div>
-                <div>
-					{new Intl.NumberFormat('en-US', { style: 'currency', currency: countryCode }).format(rate)}
-				</div>
-            </div>
-        {/each}
-    </div>
-</div> -->
