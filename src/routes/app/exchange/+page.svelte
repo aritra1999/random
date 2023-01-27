@@ -2,12 +2,34 @@
 	import { onMount } from 'svelte';
 	import { getCountryCurrencySymbol, getListItemFromCountryLocal } from './utils';
 
-	let rates: Record<string, number> = {};
-	const desiredCurrencies = ['INR', 'EUR', 'USD', 'JPY', 'CAD']
+	let exchangeRates: Record<string, number> = {};
+	let inputRates: Record<string, number> = {};
+	const desiredCurrencies = ['INR', 'EUR', 'USD', 'JPY', 'CAD', 'GBP']
+
+	$: inputRates = {};
 	
 	
+	
+	// function getUpdate()(updatedCurrency: string) => {
+	// 	let updatedRates: Record<string, number> = {}
+	// 	console.log(updatedCurrency);
+	// 	if (inputRates[updatedCurrency] == 0 || inputRates[updatedCurrency] == undefined) {
+	// 		desiredCurrencies.forEach((currency) => {
+	// 			updatedRates[currency] = 0; 
+	// 		})
+	// 	} else {
+	// 		desiredCurrencies.forEach((currency) => {
+	// 			updatedRates[currency] = (exchangeRates[currency] / exchangeRates[updatedCurrency]) * inputRates[updatedCurrency]; 
+	// 		})
+	// 		console.log(updatedRates);
+			
+	// 	}
+	// 	return updatedRates;
+	// };
+
+
 	onMount(async function () {
-		rates = {
+		exchangeRates = {
 			INR: 1,
 			AED: 0.04512,
 			AFN: 1.1078,
@@ -174,13 +196,14 @@
 		// const url = `https://v6.exchangerate-api.com/v6/9ef965b573df66e9a4da2d12/latest/${BASE}`;
 		// const response = await fetch(url);
 		// rates = (await response.json()).conversion_rates;
+		inputRates = exchangeRates;
 	});
 
 </script>
 
 <div class="grid sm:grid-cols-3 grid-cols-1 gap-4">
 	{#each desiredCurrencies as desiredCurrency}
-		<div class="p-4 border-[3px] border-slate-100 w-full rounded-lg">
+		<div class="p-4 border-[3px] border-slate-100 rounded-lg">
 			<div class="mb-2">
 				{getListItemFromCountryLocal(desiredCurrency)}
 			</div>
@@ -188,7 +211,7 @@
 				<div class="px-4 py-2 bg-blue-50 mr-2 border-[3px] border-blue-600 rounded-lg text-blue-600">
 					{getCountryCurrencySymbol(desiredCurrency)}
 				</div>
-				<input type="text" value="{rates[desiredCurrency]}" />
+				<input type="number" class="w-full" bind:value={inputRates[desiredCurrency]} />
 			</div>
 		</div>
 	{/each}
