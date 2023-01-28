@@ -2,33 +2,13 @@
 	import { onMount } from 'svelte';
 	import { getCountryCurrencySymbol, getListItemFromCountryLocal } from './utils';
 
+	const desiredCurrencies = ['INR', 'EUR', 'USD', 'JPY', 'CAD', 'GBP']	
 	let exchangeRates: Record<string, number> = {};
-	let inputRates: Record<string, number> = {};
-	const desiredCurrencies = ['INR', 'EUR', 'USD', 'JPY', 'CAD', 'GBP']
-
-	$: inputRates = {};
-	
-	
-	
-	// function getUpdate()(updatedCurrency: string) => {
-	// 	let updatedRates: Record<string, number> = {}
-	// 	console.log(updatedCurrency);
-	// 	if (inputRates[updatedCurrency] == 0 || inputRates[updatedCurrency] == undefined) {
-	// 		desiredCurrencies.forEach((currency) => {
-	// 			updatedRates[currency] = 0; 
-	// 		})
-	// 	} else {
-	// 		desiredCurrencies.forEach((currency) => {
-	// 			updatedRates[currency] = (exchangeRates[currency] / exchangeRates[updatedCurrency]) * inputRates[updatedCurrency]; 
-	// 		})
-	// 		console.log(updatedRates);
-			
-	// 	}
-	// 	return updatedRates;
-	// };
-
 
 	onMount(async function () {
+		// const url = `https://v6.exchangerate-api.com/v6/9ef965b573df66e9a4da2d12/latest/${BASE}`;
+		// const response = await fetch(url);
+		// rates = (await response.json()).conversion_rates;
 		exchangeRates = {
 			INR: 1,
 			AED: 0.04512,
@@ -193,25 +173,53 @@
 			ZMW: 0.2269,
 			ZWL: 9.0143
 		};
-		// const url = `https://v6.exchangerate-api.com/v6/9ef965b573df66e9a4da2d12/latest/${BASE}`;
-		// const response = await fetch(url);
-		// rates = (await response.json()).conversion_rates;
-		inputRates = exchangeRates;
 	});
+
+	$: rates = getCurrencyRates();
+	let inputValue: number = 100; 
+	let selectedCurrency: string = desiredCurrencies[0];
+
+	function getCurrencyRates(): Record<string, number> {
+		const updatedRates: Record<string, number> = exchangeRates;
+		console.log(inputValue, selectedCurrency, exchangeRates);
+		
+		for( const [key, value] of Object.entries(exchangeRates)) {
+			updatedRates[key] = ( value / exchangeRates[selectedCurrency] ) * value;
+		}
+		return updatedRates; 
+	}	
+	
 
 </script>
 
 <div class="grid sm:grid-cols-3 grid-cols-1 gap-4">
+	<div class="p-4 border-[3px] border-slate-100 rounded-lg">
+		<div class="mb-2">
+			<select bind:value={selectedCurrency} id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2">
+				{#each desiredCurrencies as desiredCurrency}
+					<option value="{desiredCurrency}">{getListItemFromCountryLocal(desiredCurrency)}</option>
+				{/each}
+			</select>
+		</div>
+		<div class="flex items-center">
+			<!-- <div class="px-4 py-2 bg-blue-50 mr-2 border-[3px] border-blue-600 rounded-lg text-blue-600">
+				{getCountryCurrencySymbol(selected)}
+			</div> -->
+			<input type="number" bind:value={inputValue} class="w-full"/>
+		</div>
+	</div>
 	{#each desiredCurrencies as desiredCurrency}
 		<div class="p-4 border-[3px] border-slate-100 rounded-lg">
-			<div class="mb-2">
+			<div class="p-2">
 				{getListItemFromCountryLocal(desiredCurrency)}
 			</div>
-			<div class="flex items-center">
-				<div class="px-4 py-2 bg-blue-50 mr-2 border-[3px] border-blue-600 rounded-lg text-blue-600">
+			<div class="flex items-center px-4 py-2 space-x-4 bg-slate-50 mr-2 border-[3px] border-slate-200 rounded-lg">
+				<div class="">
 					{getCountryCurrencySymbol(desiredCurrency)}
 				</div>
-				<input type="number" class="w-full" bind:value={inputRates[desiredCurrency]} />
+				<div>
+					{rates[desiredCurrency]}
+				</div>
 			</div>
 		</div>
 	{/each}
