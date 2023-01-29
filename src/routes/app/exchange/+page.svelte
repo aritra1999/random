@@ -1,14 +1,19 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { getCountryCurrencySymbol, getListItemFromCountryLocal } from './utils';
+	import { getCountryCurrencySymbol, getListItemFromCountryLocal, roundOff } from './utils';
 
-	const desiredCurrencies = ['INR', 'EUR', 'USD', 'JPY', 'CAD', 'GBP']	
+	const desiredCurrencies = ['INR', 'EUR', 'USD', 'JPY', 'CAD', 'GBP'];
+	const BASE = 'INR'
+
 	let exchangeRates: Record<string, number> = {};
+	let rates: Record<string, number> = {};
+	let inputValue: number = 100; 
+	let selectedCurrency: string = desiredCurrencies[0];
 
 	onMount(async function () {
 		// const url = `https://v6.exchangerate-api.com/v6/9ef965b573df66e9a4da2d12/latest/${BASE}`;
 		// const response = await fetch(url);
-		// rates = (await response.json()).conversion_rates;
+		// exchangeRates = (await response.json()).conversion_rates;
 		exchangeRates = {
 			INR: 1,
 			AED: 0.04512,
@@ -173,29 +178,27 @@
 			ZMW: 0.2269,
 			ZWL: 9.0143
 		};
+		setCurrencyRates();
 	});
 
-	$: rates = getCurrencyRates();
-	let inputValue: number = 100; 
-	let selectedCurrency: string = desiredCurrencies[0];
+	function setCurrencyRates() {
+		console.log('Updateing rates');
+		const updatedRates: Record<string, number> = {};
 
-	function getCurrencyRates(): Record<string, number> {
-		const updatedRates: Record<string, number> = exchangeRates;
-		console.log(inputValue, selectedCurrency, exchangeRates);
+		console.log(selectedCurrency);
 		
-		for( const [key, value] of Object.entries(exchangeRates)) {
-			updatedRates[key] = ( value / exchangeRates[selectedCurrency] ) * value;
-		}
-		return updatedRates; 
+		desiredCurrencies.forEach((desiredCurrency: string) => {
+			updatedRates[desiredCurrency] = roundOff(inputValue * (exchangeRates[desiredCurrency] / exchangeRates[selectedCurrency]));
+		});
+		rates = updatedRates; 
 	}	
-	
 
 </script>
 
 <div class="grid sm:grid-cols-3 grid-cols-1 gap-4">
 	<div class="p-4 border-[3px] border-slate-100 rounded-lg">
 		<div class="mb-2">
-			<select bind:value={selectedCurrency} id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2">
+			<select bind:value={selectedCurrency} on:change={setCurrencyRates} id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2">
 				{#each desiredCurrencies as desiredCurrency}
 					<option value="{desiredCurrency}">{getListItemFromCountryLocal(desiredCurrency)}</option>
 				{/each}
@@ -205,7 +208,7 @@
 			<!-- <div class="px-4 py-2 bg-blue-50 mr-2 border-[3px] border-blue-600 rounded-lg text-blue-600">
 				{getCountryCurrencySymbol(selected)}
 			</div> -->
-			<input type="number" bind:value={inputValue} class="w-full"/>
+			<input type="number" on:keyup={setCurrencyRates}  bind:value={inputValue} class="w-full"/>
 		</div>
 	</div>
 	{#each desiredCurrencies as desiredCurrency}
@@ -224,3 +227,5 @@
 		</div>
 	{/each}
 </div>
+
+

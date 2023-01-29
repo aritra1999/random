@@ -12,6 +12,10 @@ function getRegionName(countryCode: string) {
     return new Intl.DisplayNames(['en'], {type: 'region'}).of(countryCode.slice(0, 2));
 }
 
+export function roundOff(amount: number): number {
+    return Math.round(amount * 100) / 100;
+}
+
 export function getCountryCurrencySymbol (currency: string) {
     return (0).toLocaleString(
       'en-US',
