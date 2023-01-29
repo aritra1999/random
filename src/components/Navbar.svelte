@@ -11,7 +11,7 @@
       rand0m
     </span>
   </a>
-  <div class="flex md:order-2">
-    <input id="search-navbar" class="pl-10" placeholder="Search..." />
-  </div>
+  <!-- <div class="flex md:order-2">
+    <input id="search-navbar" class="pl-10 input" placeholder="Search..." />
+  </div> -->
 </nav>

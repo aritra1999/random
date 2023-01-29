@@ -1,5 +1,5 @@
 export function getListItemFromCountryLocal(countryCode: string): string {
-    return `${getFlagEmoji(countryCode)} ${getRegionName(countryCode)}(${countryCode})`;
+    return `${getFlagEmoji(countryCode)}  ${getRegionName(countryCode)}(${countryCode})`;
 }
 
 function getFlagEmoji(countryCode: string) {
@@ -18,12 +18,12 @@ export function roundOff(amount: number): number {
 
 export function getCountryCurrencySymbol (currency: string) {
     return (0).toLocaleString(
-      'en-US',
-      {
-        style: 'currency',
-        currency: currency,
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0
-      }
+        'en-US',
+        {
+            style: 'currency',
+            currency: currency,
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }
     ).replace(/\d/g, '').trim()
-  }
+}

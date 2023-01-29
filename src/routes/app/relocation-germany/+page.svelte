@@ -77,8 +77,8 @@
         </div>
     {/if }
     <label for="salary">🇩🇪 salary -  💶/year</label>
-    <div class="flex my-2">
-        <input type="number" data-type="currency" placeholder="€4.000" bind:value={salary} required/>
+    <div class="flex my-2 space-x-2">
+        <input class="input" type="number" data-type="currency" placeholder="€4.000" bind:value={salary} required/>
         <button class="submit-button" on:click={() => {calculate()}}>
             {#if loading}<Loading />{/if}
             calulate

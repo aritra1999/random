@@ -2,10 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+*:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 html, body {
     font-family: 'Inter', sans-serif;
 }
-
 
 .group-heading {
     @apply flex items-center space-x-2 font-extrabold text-3xl m-3;
@@ -19,21 +24,14 @@ html, body {
     @apply text-blue-600
 }
 
-input, textarea {
-    @apply px-4 py-2 bg-slate-50 rounded-lg border-[3px] border-slate-100 hover:border-black active:border-[3px] active:border-black resize-none !important;
+.input {
+    @apply flex items-center justify-between px-4 py-2 bg-slate-100 rounded-lg border-[3px] border-slate-200 hover:border-black active:border-[3px] active:border-black resize-none !important;
 }
 
 .input-container {
     @apply px-4 py-3 my-2 bg-slate-50 rounded-lg border-[3px] border-slate-100 hover:border-black active:border-black w-full resize-none !important;
 }
 
-label {
-    @apply mb-2;
-}
-
-hr {
-    @apply mt-4 mb-6;
-}
 
 .submit-button {
     @apply px-6 py-2 bg-black hover:bg-slate-900 text-white font-semibold rounded-lg flex items-center;
@@ -43,14 +41,11 @@ hr {
     @apply text-xl font-bold my-2; 
 }
 
-td, th {
-    @apply p-4;
-}
-
-th {
-    @apply text-left;
-}
-
+label {@apply mb-2;}
+hr {@apply mt-4 mb-6;}
+td, th {@apply p-4;}
+th {@apply text-left;}
+input {@apply m-0 p-0 border-none bg-transparent !important;} 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none;
@@ -58,3 +53,4 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0; 
 }
+
