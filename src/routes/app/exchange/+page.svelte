@@ -11,186 +11,24 @@
 	let selectedCurrency: string = desiredCurrencies[0];
 
 	onMount(async function () {
-		// const url = `https://v6.exchangerate-api.com/v6/9ef965b573df66e9a4da2d12/latest/${BASE}`;
-		// const response = await fetch(url);
-		// exchangeRates = (await response.json()).conversion_rates;
-		exchangeRates = {
-			INR: 1,
-			AED: 0.04512,
-			AFN: 1.1078,
-			ALL: 1.3257,
-			AMD: 4.8604,
-			ANG: 0.02199,
-			AOA: 6.2404,
-			ARS: 2.2417,
-			AUD: 0.01759,
-			AWG: 0.02199,
-			AZN: 0.02092,
-			BAM: 0.02221,
-			BBD: 0.02457,
-			BDT: 1.2867,
-			BGN: 0.02221,
-			BHD: 0.00462,
-			BIF: 25.4286,
-			BMD: 0.01229,
-			BND: 0.01621,
-			BOB: 0.08504,
-			BRL: 0.06282,
-			BSD: 0.01229,
-			BTN: 1.0,
-			BWP: 0.156,
-			BYN: 0.03099,
-			BZD: 0.02457,
-			CAD: 0.01647,
-			CDF: 25.2568,
-			CHF: 0.01125,
-			CLP: 10.023,
-			CNY: 0.08303,
-			COP: 57.935,
-			CRC: 6.9913,
-			CUP: 0.2949,
-			CVE: 1.252,
-			CZK: 0.2718,
-			DJF: 2.1835,
-			DKK: 0.08471,
-			DOP: 0.6969,
-			DZD: 1.6707,
-			EGP: 0.3655,
-			ERN: 0.1843,
-			ETB: 0.6559,
-			EUR: 0.01135,
-			FJD: 0.02665,
-			FKP: 0.009951,
-			FOK: 0.08471,
-			GBP: 0.009944,
-			GEL: 0.0327,
-			GGP: 0.009951,
-			GHS: 0.1544,
-			GIP: 0.009951,
-			GMD: 0.7723,
-			GNF: 106.8,
-			GTQ: 0.09644,
-			GYD: 2.5585,
-			HKD: 0.0962,
-			HNL: 0.3031,
-			HRK: 0.08555,
-			HTG: 1.8279,
-			HUF: 4.4887,
-			IDR: 185.4395,
-			ILS: 0.04154,
-			IMP: 0.009951,
-			IQD: 17.8852,
-			IRR: 524.3068,
-			ISK: 1.7527,
-			JEP: 0.009951,
-			JMD: 1.878,
-			JOD: 0.008711,
-			JPY: 1.5833,
-			KES: 1.5222,
-			KGS: 1.0514,
-			KHR: 50.5135,
-			KID: 0.01759,
-			KMF: 5.5862,
-			KRW: 15.1677,
-			KWD: 0.003753,
-			KYD: 0.01024,
-			KZT: 5.7208,
-			LAK: 208.2709,
-			LBP: 18.5215,
-			LKR: 4.4711,
-			LRD: 1.9084,
-			LSL: 0.2091,
-			LYD: 0.0583,
-			MAD: 0.1249,
-			MDL: 0.2337,
-			MGA: 53.4,
-			MKD: 0.6982,
-			MMK: 29.0342,
-			MNT: 42.4773,
-			MOP: 0.09908,
-			MRU: 0.4449,
-			MUR: 0.5439,
-			MVR: 0.1895,
-			MWK: 12.6137,
-			MXN: 0.2299,
-			MYR: 0.05305,
-			MZN: 0.7857,
-			NAD: 0.2091,
-			NGN: 5.5722,
-			NIO: 0.4496,
-			NOK: 0.1211,
-			NPR: 1.6,
-			NZD: 0.019,
-			OMR: 0.004724,
-			PAB: 0.01229,
-			PEN: 0.04709,
-			PGK: 0.04325,
-			PHP: 0.671,
-			PKR: 2.8189,
-			PLN: 0.05334,
-			PYG: 91.3361,
-			QAR: 0.04472,
-			RON: 0.05602,
-			RSD: 1.3325,
-			RUB: 0.8487,
-			RWF: 13.4915,
-			SAR: 0.04607,
-			SBD: 0.103,
-			SCR: 0.1716,
-			SDG: 5.4649,
-			SEK: 0.1268,
-			SGD: 0.01621,
-			SHP: 0.009951,
-			SLE: 0.2403,
-			SLL: 240.2553,
-			SOS: 6.948,
-			SRD: 0.3896,
-			SSP: 8.7452,
-			STN: 0.2782,
-			SYP: 30.8177,
-			SZL: 0.2091,
-			THB: 0.4044,
-			TJS: 0.126,
-			TMT: 0.04308,
-			TND: 0.03624,
-			TOP: 0.0291,
-			TRY: 0.2311,
-			TTD: 0.0839,
-			TVD: 0.01759,
-			TWD: 0.3712,
-			TZS: 28.7076,
-			UAH: 0.4523,
-			UGX: 45.184,
-			USD: 0.01229,
-			UYU: 0.4883,
-			UZS: 138.8543,
-			VES: 0.2455,
-			VND: 289.0083,
-			VUV: 1.4803,
-			WST: 0.0325,
-			XAF: 7.4483,
-			XCD: 0.03317,
-			XDR: 0.009102,
-			XOF: 7.4483,
-			XPF: 1.355,
-			YER: 3.0736,
-			ZAR: 0.2091,
-			ZMW: 0.2269,
-			ZWL: 9.0143
-		};
+		const url = `https://v6.exchangerate-api.com/v6/9ef965b573df66e9a4da2d12/latest/${BASE}`;
+		const response = await fetch(url);
+		exchangeRates = (await response.json()).conversion_rates;
+		// exchangeRates = {
+		// 	"INR": 1,
+		// 	"EUR": 0.013,
+		// 	"USD": 0.014,
+		// 	"JPY": 1.54,
+		// 	"CAD": 0.018,
+		// 	"GBP": 0.011
+		// }
 		setCurrencyRates();
 	});
 
 	function setCurrencyRates() {
-		console.log('Updateing rates');
-		const updatedRates: Record<string, number> = {};
-
-		console.log(selectedCurrency);
-		
-		desiredCurrencies.forEach((desiredCurrency: string) => {
-			updatedRates[desiredCurrency] = roundOff(inputValue * (exchangeRates[desiredCurrency] / exchangeRates[selectedCurrency]));
+		desiredCurrencies.map((desiredCurrency: string) => {
+			rates[desiredCurrency] = roundOff(inputValue * (exchangeRates[desiredCurrency] / exchangeRates[selectedCurrency]));
 		});
-		rates = updatedRates; 
 	}	
 
 </script>
@@ -204,24 +42,24 @@
 				{/each}
 			</select>
 		</div>
-		<div class="flex items-center">
-			<!-- <div class="px-4 py-2 bg-blue-50 mr-2 border-[3px] border-blue-600 rounded-lg text-blue-600">
-				{getCountryCurrencySymbol(selected)}
-			</div> -->
+		<div class="flex items-center input">
+			<div >
+				{getCountryCurrencySymbol(selectedCurrency)}
+			</div>
 			<input type="number" on:keyup={setCurrencyRates}  bind:value={inputValue} class="w-full"/>
 		</div>
 	</div>
 	{#each desiredCurrencies as desiredCurrency}
 		<div class="p-4 border-[3px] border-slate-100 rounded-lg">
-			<div class="p-2">
+			<div class="p-2 text-lg font-semibold text-slate-800">
 				{getListItemFromCountryLocal(desiredCurrency)}
 			</div>
-			<div class="flex items-center px-4 py-2 space-x-4 bg-slate-50 mr-2 border-[3px] border-slate-200 rounded-lg">
-				<div class="">
-					{getCountryCurrencySymbol(desiredCurrency)}
-				</div>
+			<div class="input">
 				<div>
-					{rates[desiredCurrency]}
+					{new Intl.NumberFormat('en-US', {
+						style: 'currency',
+						currency: desiredCurrency
+					  }).format(rates[desiredCurrency])}
 				</div>
 			</div>
 		</div>
