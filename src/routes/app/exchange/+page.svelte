@@ -50,19 +50,22 @@
 		</div>
 	</div>
 	{#each desiredCurrencies as desiredCurrency}
-		<div class="p-4 border-[3px] border-slate-100 rounded-lg">
-			<div class="p-2 text-lg font-semibold text-slate-800">
-				{getListItemFromCountryLocal(desiredCurrency)}
-			</div>
-			<div class="input">
-				<div>
-					{new Intl.NumberFormat('en-US', {
-						style: 'currency',
-						currency: desiredCurrency
-					  }).format(rates[desiredCurrency])}
+		{#if desiredCurrency !== selectedCurrency}
+			<div class="p-4 border-[3px] border-slate-100 rounded-lg">
+				<div class="p-2 text-lg font-semibold text-slate-800">
+					{getListItemFromCountryLocal(desiredCurrency)}
 				</div>
-			</div>
-		</div>
+				<div class="input">
+					<div>
+						{new Intl.NumberFormat('en-US', {
+							style: 'currency',
+							currency: desiredCurrency
+						}).format(rates[desiredCurrency])}
+					</div>
+				</div>
+			</div>	
+		{/if}
+		
 	{/each}
 </div>
 
