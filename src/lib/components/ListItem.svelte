@@ -4,7 +4,7 @@
 </script> 
 
 
-<a href="{item.type === 'link' ? '' : '/app/'}{item.path}" class="inline-block w-full px-6 py-3 rounded-lg font-semibold border-[3px] border-slate-100 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 group m-2">
+<a href="{item.type === 'link' ? '' : '/app/'}{item.path}" target="_blank" rel="noreferrer" class="inline-block w-full px-6 py-3 rounded-lg font-semibold border-[3px] border-slate-100 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 group mx-4 my-2">
     <div class="flex items-center space-x-2">
         {#if item.icon}
             <img src={item.icon} alt="" class="h-5 w-5"/>
