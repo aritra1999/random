@@ -1,0 +1,33 @@
+[
+    {
+        "title": "AboutMe",
+        "type": "link",
+        "path": "https://aritra1999.github.io",
+        "icon": "https://github.githubassets.com/favicons/favicon.png"
+    },
+    {
+        "title": "BASE64 Encoder",
+        "type": "application",
+        "path": "base64Encoder"
+    },
+    {   
+        "title": "BASE64 Decoder",
+        "path": "base64Decoder",
+        "type": "application"
+    },
+    {
+        "title": "Relocation 🇩🇪",
+        "path": "relocation-germany",
+        "type": "application"
+    },
+    {
+        "title": "Exchange 💰",
+        "path": "exchange",
+        "type": "application"
+    },
+    {
+        "title": "Tic Tac Toe",
+        "path": "ticTacToe",
+        "type": "game"
+    }
+]

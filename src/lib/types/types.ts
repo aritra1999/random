@@ -5,4 +5,6 @@ export interface Random {
 export interface Item {
     title: string;
     path: string;
+    type: string;
+    icon?: string;
 }
