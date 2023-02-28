@@ -1,32 +1,32 @@
-{
-    "links": [
-        {
-            "title": "AboutMe",
-            "path": "aboutMe"
-        }
-    ],
-    "apps": [
-        {
-            "title": "BASE64 Encoder",
-            "path": "base64Encoder"
-        },
-        {   
-            "title": "BASE64 Decoder",
-            "path": "base64Decoder"
-        },
-        {
-            "title": "Relocation 🇩🇪",
-            "path": "relocation-germany"
-        },
-        {
-            "title": "Exchange 💰",
-            "path": "exchange"
-        }
-    ],
-    "games": [
-        {
-            "title": "Tic Tac Toe",
-            "path": "ticTacToe"
-        }
-    ]
-}
+[
+    {
+        "title": "AboutMe",
+        "path": "aboutMe",
+        "type": "link"
+    },
+    {
+        "title": "BASE64 Encoder",
+        "path": "base64Encoder",
+        "type": "application"
+    },
+    {   
+        "title": "BASE64 Decoder",
+        "path": "base64Decoder",
+        "type": "application"
+    },
+    {
+        "title": "Relocation 🇩🇪",
+        "path": "relocation-germany",
+        "type": "application"
+    },
+    {
+        "title": "Exchange 💰",
+        "path": "exchange",
+        "type": "application"
+    },
+    {
+        "title": "Tic Tac Toe",
+        "path": "ticTacToe",
+        "type": "game"
+    }
+]
