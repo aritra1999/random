@@ -1,7 +1,7 @@
 <script lang="ts">
     import { Modal } from 'flowbite-svelte'
 
-    import Loading from '../../../components/Loading.svelte';
+    import Loading from "$lib/components/Loading.svelte";
 
     import { fetchConvertionRate, fetchTax, parseDeductions } from './calculator';
 

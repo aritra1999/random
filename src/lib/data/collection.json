@@ -1,13 +1,14 @@
 [
     {
         "title": "AboutMe",
-        "path": "aboutMe",
-        "type": "link"
+        "type": "link",
+        "path": "https://aritra1999.github.io",
+        "icon": "https://github.githubassets.com/favicons/favicon.png"
     },
     {
         "title": "BASE64 Encoder",
-        "path": "base64Encoder",
-        "type": "application"
+        "type": "application",
+        "path": "base64Encoder"
     },
     {   
         "title": "BASE64 Decoder",

@@ -1,5 +1,5 @@
 <script lang="ts"> 
-    import Loading from '../../../components/Loading.svelte';
+    import Loading from "$lib/components/Loading.svelte";
     let inputString:string = '';
     let encodedString:string = '';
     let loading:boolean = false;
