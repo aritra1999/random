@@ -7,4 +7,5 @@ export interface Item {
     path: string;
     type: string;
     icon?: string;
+    tags?: string[];
 }

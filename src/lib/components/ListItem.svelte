@@ -4,7 +4,7 @@
 </script> 
 
 
-<a href="{item.type === 'link' ? '' : '/app/'}{item.path}" class="flex items-center justify-between px-6 py-3 rounded-lg font-semibold border-[3px] border-slate-100 hover:border-blue-600 group m-2">
+<a href="{item.type === 'link' ? '' : '/app/'}{item.path}" target="_blank" rel="noreferrer" class="inline-block w-full px-6 py-3 rounded-lg font-semibold border-[3px] border-slate-100 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 group mx-4 my-2">
     <div class="flex items-center space-x-2">
         {#if item.icon}
             <img src={item.icon} alt="" class="h-5 w-5"/>
@@ -21,13 +21,15 @@
                 {/if}
             </svg>
         {/if}
-        <div>
-            {item.title}
-        </div>
+        <div>{item.title}</div>
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-slate-300 group-hover:text-blue-600">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-    </svg>  
+    {#if item.tags}
+        <div class="mt-2">
+            {#each item.tags as tag}
+                <div class="tag">{tag}</div>
+            {/each}
+        </div>
+    {/if}
 </a>
 
 

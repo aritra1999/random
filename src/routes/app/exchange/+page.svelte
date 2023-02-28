@@ -14,14 +14,6 @@
 		const url = `https://v6.exchangerate-api.com/v6/9ef965b573df66e9a4da2d12/latest/${BASE}`;
 		const response = await fetch(url);
 		exchangeRates = (await response.json()).conversion_rates;
-		// exchangeRates = {
-		// 	"INR": 1,
-		// 	"EUR": 0.013,
-		// 	"USD": 0.014,
-		// 	"JPY": 1.54,
-		// 	"CAD": 0.018,
-		// 	"GBP": 0.011
-		// }
 		setCurrencyRates();
 	});
 
