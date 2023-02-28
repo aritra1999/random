@@ -3,7 +3,8 @@
         "title": "AboutMe",
         "type": "link",
         "path": "https://aritra1999.github.io",
-        "icon": "https://github.githubassets.com/favicons/favicon.png"
+        "icon": "https://github.githubassets.com/favicons/favicon.png",
+        "tags": ["Portfolio Site", "Svelte"]
     },
     {
         "title": "BASE64 Encoder",

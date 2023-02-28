@@ -41,6 +41,10 @@ html, body {
     @apply text-xl font-bold my-2; 
 }
 
+.tag {  
+    @apply px-2 pt-1 pb-0.5 mb-1 mr-2 inline-block rounded-full text-xs font-medium bg-blue-100 text-blue-600;
+}
+
 label {@apply mb-2;}
 hr {@apply mt-4 mb-6;}
 td, th {@apply p-4;}
