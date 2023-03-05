@@ -14,6 +14,7 @@
             const searchTerm = $searchStore.toLocaleLowerCase();
             return  item.title.toLowerCase().includes(searchTerm) || 
                     item.icon?.toLowerCase().includes(searchTerm) || 
+                    item.description?.toLowerCase().includes(searchTerm) ||
                     item.tags?.join().toLowerCase().includes(searchTerm);
         }) : data = ogData;
     
