@@ -7,11 +7,12 @@
     let output: string = ""; 
 
     $: output = `{
-        id: 1,
-        title: "${title}",
-        description: "${description}", 
-        tags: ${parseTags(tags)}, 
-        path: "${generateSlug(title)}" 
+        "id": 1,
+        "title": "${title}",
+        "description": "${description}", 
+        "tags": ${parseTags(tags)}, 
+        "path": "${generateSlug(title)}" 
+        "type": "blog"
     }`;
     
     const copy = () => {
