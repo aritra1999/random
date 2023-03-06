@@ -38,5 +38,9 @@
 		"vite": "^4.0.0",
 		"vitest": "^0.25.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@tailwindcss/typography": "^0.5.9",
+		"svelte-markdown": "^0.2.3"
+	}
 }
