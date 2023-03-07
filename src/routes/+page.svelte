@@ -1,11 +1,5 @@
 <script> 
     import List from "$lib/components/List.svelte";
-<<<<<<< Updated upstream
-    import items from "$lib/data/collection.json";
-</script>
-
-<List items={items} />
-=======
 	import type { PageData } from "./$types";
     
     export let data: PageData;
@@ -34,5 +28,4 @@
 {/if}
 <List items={items} />
 
->>>>>>> Stashed changes
 
