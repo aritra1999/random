@@ -46,11 +46,16 @@ html, body {
     @apply px-2 pt-1 pb-0.5 mb-1 mr-2 inline-block rounded-full text-xs font-medium bg-blue-100 text-blue-600;
 }
 
-label {@apply font-semibold;}
+label {@apply font-semibold mb-2;}
 hr {@apply mt-4 mb-6;}
 td, th {@apply p-4;}
 th {@apply text-left;}
-
+li {
+    list-style-type: disc;
+    margin-left: 2rem;
+}
+input {@apply m-0 p-0 border-none bg-transparent !important;} 
+code {@apply bg-gray-200 rounded py-0.5;}
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none;
