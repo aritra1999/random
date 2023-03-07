@@ -4,6 +4,6 @@ export const load = async ({ fetch}) => {
     const collection = await response.json();  
 
     return {
-        items: collection
+        collection
     }; 
 }
