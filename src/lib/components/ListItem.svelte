@@ -23,7 +23,9 @@
                 {/if}
             </div>
         {/if}
-        <div>{item.title}</div>
+        <div>
+            <span>{item.title}</span>
+        </div>
     </div>
     {#if item.description}
         <div class="mt-2 text-sm text-gray-500">{item.description}</div>
