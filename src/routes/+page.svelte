@@ -1,5 +1,7 @@
-<script> 
+<script lang="ts"> 
     import List from "$lib/components/List.svelte";
+	import { searchStore } from "$lib/store/searchStore";
+    import type { Item } from "$lib/types/types";
 	import type { PageData } from "./$types";
     
     export let data: PageData;
@@ -27,5 +29,3 @@
     </div>
 {/if}
 <List items={items} />
-
-
