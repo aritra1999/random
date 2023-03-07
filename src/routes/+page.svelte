@@ -22,7 +22,10 @@
 
 {#if $searchStore.length >= SEARCH_THRESHOLD}
     <div class="p-2 mb-4 text-sm text-blue-600 rounded-lg " role="alert">
-        Found <span class="font-semibold">{data.items.length}</span> items, searching for <span class="font-semibold">{$searchStore}</span>
+        Found 
+        <span class="font-semibold">{data.items.length}</span> 
+        items, searching for 
+        <span class="font-semibold">{$searchStore}</span>
     </div>
 {/if}
 
