@@ -6,6 +6,6 @@
 </script>
 
 <div class="prose prose-lg mx-auto">
-    <SvelteMarkdown  source={data.props.content} />
+    <SvelteMarkdown  source={data.content} />
 </div>
 
