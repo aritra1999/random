@@ -1,23 +1,14 @@
 <script lang="ts"> 
     import List from "$lib/components/List.svelte";
-	import { searchStore } from "$lib/store/searchStore";
-    import type { Item } from "$lib/types/types";
 	import type { PageData } from "./$types";
+    import type { Item } from "$lib/types/types";
+	import { searchStore } from "$lib/store/searchStore";
+	import { buildItemList, SEARCH_THRESHOLD } from "$lib/utils/utils";
     
     export let data: PageData;
-    let items: Item[] = data.collection;
-    const ogItems = items;
-    const SEARCH_THRESHOLD = 1;
+    let items: Item[];
 
-    $: ($searchStore.length >= SEARCH_THRESHOLD) ? 
-        items = ogItems.filter((item: Item) => {     
-            const searchTerm = $searchStore.toLocaleLowerCase();
-            return  item.title.toLowerCase().includes(searchTerm) || 
-                    item.icon?.toLowerCase().includes(searchTerm) || 
-                    item.description?.toLowerCase().includes(searchTerm) ||
-                    item.tags?.join().toLowerCase().includes(searchTerm);
-        }) : items = ogItems;
-    
+    $: items = buildItemList(data.collection, $searchStore);
 </script>
 
 {#if $searchStore.length >= SEARCH_THRESHOLD}
@@ -28,4 +19,6 @@
         <span class="font-semibold">{$searchStore}</span>
     </div>
 {/if}
-<List items={items} />
+<div class="h-full w-full">
+    <List items={items} />
+</div>

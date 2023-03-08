@@ -43,14 +43,14 @@ html, body {
 }
 
 .tag {  
-    @apply px-2 pt-1 pb-0.5 mb-1 mr-2 inline-block rounded-full text-xs font-medium bg-blue-100 text-blue-600;
+    @apply px-2 py-0.5 mb-1 mr-2 inline-block rounded-full text-xs font-medium bg-blue-100 text-blue-600;
 }
 
 label {@apply font-semibold;}
 hr {@apply mt-4 mb-6;}
 td, th {@apply p-4;}
 th {@apply text-left;}
-
+li {@apply ml-6 list-disc;}
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none;
