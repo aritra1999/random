@@ -1,8 +1,15 @@
 <script>
     import "../app.css";
-    import Navbar from '../components/Navbar.svelte';
+    import Navbar from "$lib/components/Navbar.svelte";
+	import Footer from "$lib/components/Footer.svelte";
 </script>
-<Navbar />
-<div class="container px-5 py-4 mx-auto">
+
+<svelte:head>
+    <title>rand0m</title>
+</svelte:head>
+
+<div class="container py-4 px-2 mx-auto">
+    <Navbar />
     <slot />
 </div> 
+<Footer />

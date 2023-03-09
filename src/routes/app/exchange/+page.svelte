@@ -60,8 +60,17 @@
 				<div class="p-2 text-sm font-medium text-slate-800">
 					{getListItemFromCountryLocal(desiredCurrency)}
 				</div>
-			</div>
-		</div>
+				<div class="input">
+					<div>
+						{new Intl.NumberFormat('en-US', {
+							style: 'currency',
+							currency: desiredCurrency
+						}).format(rates[desiredCurrency])}
+					</div>
+				</div>
+			</div>	
+		{/if}
+		
 	{/each}
 </div>
 

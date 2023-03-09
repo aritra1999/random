@@ -10,6 +10,7 @@
 
 html, body {
     font-family: 'Inter', sans-serif;
+    width: 100vw !important;
 }
 
 .group-heading {
@@ -25,7 +26,7 @@ html, body {
 }
 
 .input {
-    @apply flex items-center justify-between px-4 py-2 bg-slate-100 rounded-lg border-[3px] border-slate-200 hover:border-black active:border-[3px] active:border-black resize-none !important;
+    @apply flex items-center justify-between px-4 py-2 mt-1 bg-slate-100 rounded-lg border-[3px] border-slate-200 hover:border-black active:border-[3px] active:border-black resize-none !important;
 }
 
 .input-container {
@@ -34,18 +35,22 @@ html, body {
 
 
 .submit-button {
-    @apply px-6 py-2 bg-black hover:bg-slate-900 text-white font-semibold rounded-lg flex items-center;
+    @apply px-6 py-2 bg-black hover:bg-slate-900 text-white font-semibold rounded-lg flex items-center ml-2 mt-2;
 }
 
 .item-heading {
     @apply text-xl font-bold my-2; 
 }
 
-label {@apply mb-2;}
+.tag {  
+    @apply px-2 py-0.5 mb-1 mr-2 inline-block rounded-full text-xs font-medium bg-blue-100 text-blue-600;
+}
+
+label {@apply font-semibold;}
 hr {@apply mt-4 mb-6;}
 td, th {@apply p-4;}
 th {@apply text-left;}
-input {@apply m-0 p-0 border-none bg-transparent !important;} 
+li {@apply ml-6 list-disc;}
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none;

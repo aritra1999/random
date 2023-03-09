@@ -9,9 +9,10 @@ const config = {
   },
 
   plugins: [
-    require('flowbite/plugin')
+    require("flowbite/plugin"),
+    require("@tailwindcss/typography")
   ],
-  darkMode: 'class',
+  darkMode: "class",
 };
 
 module.exports = config;
