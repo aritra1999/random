@@ -40,3 +40,8 @@ export function buildItemList(items: Item[], searchString: string): Item[] {
 
     return items; 
 }
+
+export async function sleep (time: number) {
+    console.log(`Sleeping for ${time}ms`);
+    new Promise(resolve => setTimeout(resolve, time));
+}
