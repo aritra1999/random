@@ -1,6 +1,8 @@
+export const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
+export const inrFormatter = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' });
 
 
-export async function fetchConvertionRate(): Promise<number> {
+export async function fetchConversionRate(): Promise<number> {
     const response = await fetch(`https://v6.exchangerate-api.com/v6/9ef965b573df66e9a4da2d12/pair/EUR/INR`);
     const rate = await response.json();
     return rate.conversion_rate;

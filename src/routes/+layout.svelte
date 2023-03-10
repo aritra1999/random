@@ -10,6 +10,8 @@
 
 <div class="container py-4 px-2 mx-auto">
     <Navbar />
-    <slot />
+    <div class="mb-10">
+        <slot />
+    </div>
 </div> 
 <Footer />

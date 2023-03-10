@@ -10,7 +10,6 @@
 
 html, body {
     font-family: 'Inter', sans-serif;
-    width: 100vw !important;
 }
 
 .group-heading {
@@ -35,7 +34,7 @@ html, body {
 
 
 .submit-button {
-    @apply px-6 py-2 bg-black hover:bg-slate-900 text-white font-semibold rounded-lg flex items-center ml-2 mt-2;
+    @apply px-6 py-2 bg-black hover:bg-slate-900 text-white font-semibold rounded-lg flex items-center ml-1 mt-1;
 }
 
 .item-heading {
@@ -47,7 +46,7 @@ html, body {
 }
 
 label {@apply font-semibold;}
-hr {@apply mt-4 mb-6;}
+hr {@apply my-4;}
 td, th {@apply p-4;}
 th {@apply text-left;}
 li {@apply ml-6 list-disc;}
