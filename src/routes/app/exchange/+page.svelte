@@ -46,7 +46,6 @@
 		{#if desiredCurrency !== selectedCurrency}
 			<div class="flex items-center justify-between input border-none">
 				<div class="text-md font-medium">
-					
 					{#if loading}
 						<Loading />
 					{:else}
@@ -59,14 +58,6 @@
 				</div>
 				<div class="p-2 text-sm font-medium text-slate-800">
 					{getListItemFromCountryLocal(desiredCurrency)}
-				</div>
-				<div class="input">
-					<div>
-						{new Intl.NumberFormat('en-US', {
-							style: 'currency',
-							currency: desiredCurrency
-						}).format(rates[desiredCurrency])}
-					</div>
 				</div>
 			</div>	
 		{/if}
