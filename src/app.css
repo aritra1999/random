@@ -49,7 +49,6 @@ label {@apply font-semibold;}
 hr {@apply my-4;}
 td, th {@apply p-4;}
 th {@apply text-left;}
-li {@apply ml-6 list-disc;}
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none;
