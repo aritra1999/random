@@ -5,7 +5,7 @@ export const SEARCH_THRESHOLD = 1;
 export function getLocation(type: string, path: string): string {
     const locationMap: Record<string, string> = {
         link: path,
-        blog: `/blog/${path}`,
+        blog: `/blog/${encodeURIComponent(path)}`,
         application: `/app/${path}`,
         game: `/app/${path}`,
         default: "",

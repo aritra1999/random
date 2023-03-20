@@ -27,7 +27,7 @@
         <div class="font-semibold text-lg">{item.title}</div>
     </div>
     {#if item.description}
-        <div class="font-medium text-xs my-2">
+        <div class="font-medium text-xs my-2 prose prose-lg">
             <SvelteMarkdown source={item.description} />
         </div>
     {/if}
