@@ -41,6 +41,7 @@
 	"type": "module",
 	"dependencies": {
 		"@tailwindcss/typography": "^0.5.9",
+		"svelte-jsoneditor": "^0.16.0",
 		"svelte-markdown": "^0.2.3"
 	}
 }
