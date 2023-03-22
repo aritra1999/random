@@ -26,8 +26,9 @@
     };
     
     const copy = () => {
-        navigator.clipboard.writeText(content.json);
-        alert(`Copied to clipboard ${JSON.stringify(content.json, null, 2)}`)
+        const json = JSON.stringify(content.json, null, 2);
+        navigator.clipboard.writeText(json);
+        alert(`Copied to clipboard ${json}`)
 	}
 
 </script>

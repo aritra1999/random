@@ -9,6 +9,7 @@
     let items: Item[];
 
     $: items = buildItemList(data.collection, $searchStore);
+        
 </script>
 
 {#if $searchStore.length >= SEARCH_THRESHOLD}
