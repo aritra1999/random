@@ -2,7 +2,7 @@ import type { Item } from "$lib/types/types";
 
 export const SEARCH_THRESHOLD = 1;
 
-export function getLocation(type: string, path: string): string {
+export function getLocation(type: string, path: string): string {    
     const locationMap: Record<string, string> = {
         link: path,
         blog: `/blog/${encodeURIComponent(path)}`,
@@ -11,7 +11,7 @@ export function getLocation(type: string, path: string): string {
         default: "",
     }
 
-    return locationMap[type] || locationMap.default;
+    return locationMap[type] || locationMap['default'];
 }
 
 export function getIcon(type: string): string {    
@@ -24,7 +24,7 @@ export function getIcon(type: string): string {
         default: "❓",
     }
 
-    return iconMap[type] || iconMap.default;
+    return iconMap[type] || iconMap['default'];
 }
 
 export function buildItemList(items: Item[], searchString: string): Item[] {
