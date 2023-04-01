@@ -5,9 +5,13 @@
 
 
     function execute(control: { type: string; icon: string; content: string; }) {
-        const editor = document.getElementById("editor");
-        // const startPosition = editor.selectionStart;
-        // const endPosition = editor.selectionEnd;
+        const editor = document.getElementById("editor") as HTMLInputElement;
+        
+        const startPosition = editor.selectionStart;
+        const endPosition = editor.selectionEnd;
+
+        
+    
     }
 
 </script>
