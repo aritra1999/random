@@ -19,7 +19,7 @@
     <div class="w-1/2 h-[calc(100vh-10rem)] border-r border-slate-200">
         <div class="flex divider-2 divider-slate-200">
             {#each controls as control}
-                <button class="p-2 font-extralight" on:click={() => execute(control)}>
+                <button class="p-2 font-extralight text-gray-500" on:click={() => execute(control)}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="0.5" stroke="currentColor" class="w-4 h-4">
                         {@html control.icon}
                     </svg>                      
