@@ -20,6 +20,7 @@ export function getIcon(type: string): string {
         blog: "📄",
         application: "🔥",
         gist: "📐",
+        linkList: "🔗",
         game: "🎮",
         default: "❓",
     }
