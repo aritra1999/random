@@ -6,7 +6,6 @@
 
     export let item: Item;
     let location: string; 
-    let icon: string;
 
     onMount(async() => {
         if (item.type === "gist") {
