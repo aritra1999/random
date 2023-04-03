@@ -9,6 +9,13 @@ export interface Item {
     path: string;
     type: string;
     description?: string; 
+    links?: LinkListItem[]
     icon?: string;
     tags?: string[];
+}
+
+export interface LinkListItem {
+    title: string;
+    link: string;
+    logo: string; 
 }
