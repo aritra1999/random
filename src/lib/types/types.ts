@@ -3,6 +3,7 @@ export interface Random {
 }
 
 export interface Item {
+	location: string;
     id: number;
     title: string;
     path: string;
