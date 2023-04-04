@@ -17,11 +17,11 @@
 </script> 
 
 {#if location === "" }
-    <div class="inline-block w-full px-6 py-3 rounded-lg border-[3px] border-slate-100 hover:border-zinc-600 group mb-4">
+    <div class="list-item group hover:border-zinc-600">
         <ListItemBody item={item} />
     </div>
 {:else}
-    <a href={location} target="_blank" rel="noreferrer" class="inline-block w-full px-6 py-3 rounded-lg border-[3px] border-slate-100 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 group mb-4">
+    <a href={location} target="_blank" rel="noreferrer" class="list-item group hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50">
         <ListItemBody item={item} />
     </a>
 {/if}
