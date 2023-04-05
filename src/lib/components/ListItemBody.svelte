@@ -7,7 +7,7 @@
 
     export let item: Item; 
     let loading = false;
-
+    
     onMount(async () => {
         if (item.type === "gist") {
             loading = true;
@@ -41,9 +41,11 @@
     <div class="text-xs divide-y divide-slate-200 mt-2">
         {#each item.links as link}
             <div class="px-3 py-2.5 flex items-center space-x-3">
-                <div>
-                    <img src="{link.logo}" alt="❓" class="h-4 w-4">
-                </div>
+                {#if link.logo}
+                    <img src="{link.logo}" alt="📜" class="h-4 w-4">
+                {:else}
+                    <div class="text-md">📜</div>
+                {/if}
                 <a href="{link.link}" target="_blank" rel="noreferrer">{link.title}</a>
             </div>
         {/each}

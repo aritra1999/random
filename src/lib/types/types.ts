@@ -17,5 +17,5 @@ export interface Item {
 export interface LinkListItem {
     title: string;
     link: string;
-    logo: string; 
+    logo?: string; 
 }
