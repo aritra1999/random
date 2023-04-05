@@ -53,6 +53,7 @@
 {/if}
 {#if item.tags}
     <div class="mt-2">
+        <div class="tag">{item.type}</div>
         {#each item.tags as tag}
             <div class="tag">{tag}</div>
         {/each}
