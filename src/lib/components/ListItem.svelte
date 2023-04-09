@@ -1,17 +1,10 @@
 <script lang="ts">
 	import { getLocation } from "$lib/utils/utils";
-	import { onMount } from "svelte";
 	import type { Item } from "$lib/types/types";
 	import ListItemBody from "$lib/components/ListItemBody.svelte";
 
     export let item: Item;
     let location: string; 
-
-    onMount(async() => {
-        if (item.type === "gist") {
-            item.description = await (await fetch(item.path)).text(); 
-        } 
-    })
 
     $: location = getLocation(item.type, item.path);
 </script> 
