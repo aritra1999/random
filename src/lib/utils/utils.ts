@@ -28,7 +28,8 @@ export function getIcon(type: string): string {
     return iconMap[type] || iconMap['default'];
 }
 
-export function buildItemList(items: Item[], searchString: string): Item[] {
+export function buildItemList(items: Item[], searchString: string, selectedCategories: string[]): Item[] {
+    console.log(selectedCategories);
     if (searchString.length >= SEARCH_THRESHOLD) {
         const searchTerm = searchString.toLocaleLowerCase();
         return items.filter((item: Item) => 
@@ -45,4 +46,18 @@ export function buildItemList(items: Item[], searchString: string): Item[] {
 export async function sleep (time: number) {
     console.log(`Sleeping for ${time}ms`);
     new Promise(resolve => setTimeout(resolve, time));
+}
+
+export function buildCategories(items: Item[]): string[] {
+    let uniqueCategories = new Set<string>();
+    if(items) 
+        items.forEach((item: Item) => {
+            if (item.tags) {
+                item.tags.forEach((tag: string) => {
+                    uniqueCategories.add(tag);
+                });
+            }
+        });
+
+    return Array.from(uniqueCategories);
 }
