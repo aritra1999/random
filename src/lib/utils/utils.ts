@@ -35,10 +35,9 @@ export function buildItemList(items: Item[], searchString: string): Item[] {
             item.title.toLowerCase().includes(searchTerm) || 
             item.icon?.toLowerCase().includes(searchTerm) || 
             item.description?.toLowerCase().includes(searchTerm) ||
-            item.tags?.join().toLowerCase().includes(searchTerm)
-        ) 
+            item.type.includes(searchTerm)
+        )
     }
-
     return items; 
 }
 

@@ -8,10 +8,8 @@
     <title>rand0m</title>
 </svelte:head>
 
-<div class="container py-4 px-2 mx-auto">
-    <Navbar />
-    <div class="mb-10">
-        <slot />
-    </div>
-</div> 
+<Navbar />
+<div class="container py-20 px-2 mx-auto">
+    <slot />
+</div>
 <Footer />
