@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 html, body {
-    font-family: 'Inter', sans-serif;
-    @apply bg-slate-50;
+    font-family: 'Inter', sans-serif; @apply bg-slate-50;
 }
 
 .group-heading {@apply flex items-center space-x-2 font-extrabold text-3xl m-3;}
