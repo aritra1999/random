@@ -2,6 +2,16 @@ import type { Item } from "$lib/types/types";
 
 export const SEARCH_THRESHOLD = 1;
 
+const iconMap: Record<string, string> = {
+    link: "🔗",
+    blog: "📄",
+    application: "🔥",
+    gist: "📐",
+    linkList: "🔗",
+    game: "🎮",
+    default: "❓",
+}
+
 export function getLocation(type: string, path: string): string {    
     const locationMap: Record<string, string> = {
         link: path,
@@ -14,18 +24,11 @@ export function getLocation(type: string, path: string): string {
     return locationMap[type] || locationMap['default'];
 }
 
-export function getIcon(type: string): string {    
-    const iconMap: Record<string, string> = {
-        link: "🔗",
-        blog: "📄",
-        application: "🔥",
-        gist: "📐",
-        linkList: "🔗",
-        game: "🎮",
-        default: "❓",
+export function getIcon(type: string, icon: string | undefined): string {    
+    if (icon) {
+        return isValidURL(icon) ? `<img src=${icon} alt="❓" class="h-5 w-5"/>` : `<div>${icon}</div>`;
     }
-
-    return iconMap[type] || iconMap['default'];
+    return  `<div>${iconMap[type] || iconMap['default']}</div>`;
 }
 
 export function buildItemList(items: Item[], searchString: string): Item[] {
@@ -44,4 +47,12 @@ export function buildItemList(items: Item[], searchString: string): Item[] {
 export async function sleep (time: number) {
     console.log(`Sleeping for ${time}ms`);
     new Promise(resolve => setTimeout(resolve, time));
+}
+
+export function isValidURL(url: string): boolean {
+    try { 
+        return Boolean(new URL(url)); 
+    } catch(e) { 
+        return false; 
+    }
 }

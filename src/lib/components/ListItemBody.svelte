@@ -16,19 +16,18 @@
         } 
     });
 
-    $: icon = getIcon(item.type);
+    $: iconElement = getIcon(item.type, item.icon);
 </script>
+
 <div class="flex items-center space-x-3">
-    {#if item.icon}
-        <img src={item.icon} alt="❓" class="h-5 w-5"/>
-    {:else}
-        <div>{icon}</div>
-    {/if}
+    {@html iconElement}
     <div class="font-semibold text-lg">{item.title}</div>
 </div>
 
 {#if loading}
+<div class="w-full flex justify-center py-2">
     <Loading />
+</div>
 {:else} 
     {#if item.description}
         <div class="font-medium text-xs my-2 prose prose-lg">
