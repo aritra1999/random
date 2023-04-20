@@ -5,7 +5,6 @@
 
     export let item: Item;
     let location: string; 
-
     $: location = getLocation(item.type, item.path);
 </script> 
 

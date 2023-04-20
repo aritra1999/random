@@ -1,9 +1,8 @@
-export const load = async ({ fetch}) => {
-    const URL = "https://raw.githubusercontent.com/aritra1999/shelf/master/rand0m/collection.json";
-    const response = await fetch(URL,{method:'GET'});
-    const collection = await response.json();  
+import { collectionStore } from "$lib/store/store";
+import { fetchCollection } from "$lib/utils/utils";
 
-    return {
-        collection
-    }; 
+
+export const load = async () => {
+    const collection = await fetchCollection();  
+    collectionStore.set(collection);
 }
