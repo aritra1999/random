@@ -12,6 +12,26 @@ const iconMap: Record<string, string> = {
     default: "❓",
 }
 
+
+async function fetchGist(rawUrl: string): Promise<string> {
+    const response = await fetch(rawUrl);
+    return (await (response).text());
+}
+
+export async function fetchCollection(){
+    const URL = "https://raw.githubusercontent.com/aritra1999/shelf/master/rand0m/collection.json";
+    const response = await fetch(URL,{method:'GET'});
+    let collection = await response.json();
+    
+    for(let item of collection) {
+        if(item.type == "gist") {
+            item.description = await fetchGist(item.path);
+        }
+    }
+
+    return collection; 
+}
+
 export function getLocation(type: string, path: string): string {    
     const locationMap: Record<string, string> = {
         link: path,
@@ -31,7 +51,7 @@ export function getIcon(type: string, icon: string | undefined): string {
     return  `<div>${iconMap[type] || iconMap['default']}</div>`;
 }
 
-export function buildItemList(items: Item[], searchString: string): Item[] {
+export function filterItemListBySearchString(items: Item[], searchString: string): Item[] {
     if (searchString.length >= SEARCH_THRESHOLD) {
         const searchTerm = searchString.toLocaleLowerCase();
         return items.filter((item: Item) => 
