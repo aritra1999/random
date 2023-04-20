@@ -12,12 +12,11 @@
     <div class="font-semibold text-lg">{item.title}</div>
 </div>
 <div>
-    {#if item.description} description {/if}
-    <div class="font-medium text-xs my-2 prose prose-lg">
-        <SvelteMarkdown source={item.description} />
-    </div>
-
-
+    {#if item.description} 
+        <div class="font-medium text-xs my-2 prose prose-lg">
+            <SvelteMarkdown source={item.description} />
+        </div>
+    {/if}
     {#if item.links} 
         <div class="text-xs divide-y divide-slate-200 mt-2">
             {#each item.links as link}
