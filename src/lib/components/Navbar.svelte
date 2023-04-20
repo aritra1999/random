@@ -1,6 +1,6 @@
 <script lang="ts">
     import { page } from '$app/stores';
-    import { searchStore } from '$lib/store/searchStore';
+    import { searchStore } from '$lib/store/store';
 </script>  
 <nav class="mb-4 backdrop-blur-sm bg-white/50 border-[2px] border-slate-100 rounded-lg fixed w-screen">
   <div class="container mx-auto flex items-center justify-between px-2 h-16">

@@ -2,13 +2,12 @@
     import List from "$lib/components/List.svelte";
 	import type { PageData } from "./$types";
     import type { Item } from "$lib/types/types";
-	import { searchStore } from "$lib/store/searchStore";
-	import { buildItemList, SEARCH_THRESHOLD } from "$lib/utils/utils";
+	import { collectionStore, searchStore } from "$lib/store/store";
+	import { filterItemListBySearchString, SEARCH_THRESHOLD } from "$lib/utils/utils";
 
-    export let data: PageData;
-    let items: Item[] = buildItemList(data.collection, $searchStore);
-    $: items = buildItemList(data.collection, $searchStore);
-    
+    let items: Item[] = filterItemListBySearchString($collectionStore, $searchStore);
+    $: items = filterItemListBySearchString($collectionStore, $searchStore);    
+
 </script>
 
 <div class="flex items-center justify-between">
