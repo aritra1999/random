@@ -1,7 +1,3 @@
-<script lang="ts">
-    import { page } from '$app/stores';
-    import { searchStore } from '$lib/store/store';
-</script>  
 <nav class="mb-4 backdrop-blur-sm bg-white/50 border-[2px] border-slate-100 rounded-lg fixed w-screen">
   <div class="container mx-auto flex items-center justify-between px-2 h-16">
     <a href="/" class="flex items-center ml-2">
@@ -12,10 +8,5 @@
         rand0m
       </span>
     </a>
-    {#if $page.url.pathname === '/'}
-      <div class="flex md:order-2">
-        <input bind:value={$searchStore} id="search-navbar" class="flex items-center justify-between px-4 py-2 bg-slate-100 rounded-lg border-[2px] border-slate-100 hover:border-black active:border-black" placeholder="Search..." />
-      </div>
-    {/if}
   </div>
 </nav>
