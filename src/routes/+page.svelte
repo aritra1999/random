@@ -11,16 +11,14 @@
 
 </script>
 
-<div class="flex items-center justify-between mb-3">
-    <div class="text-sm text-blue-600 rounded-lg" role="alert">
-        {#if $searchStore.length >= SEARCH_THRESHOLD}
-            Found 
-            <span class="font-semibold">{items.length}</span> 
-            items, searching for 
-            <span class="font-semibold">{$searchStore}</span>
-        {/if}
-    </div>
-    <Search />
+
+<div class="text-sm text-blue-600 mb-3" role="alert">
+    {#if $searchStore.length >= SEARCH_THRESHOLD}
+        Found 
+        <span class="font-semibold">{items.length}</span> 
+        items, searching for 
+        <span class="font-semibold">{$searchStore}</span>
+    {/if}
 </div>
 <div class="h-full w-full">
     <List items={items} />

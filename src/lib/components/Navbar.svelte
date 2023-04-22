@@ -1,4 +1,10 @@
-<nav class="mb-4 backdrop-blur-sm bg-white/50 border-[2px] border-slate-100 rounded-lg fixed w-screen">
+<script lang="ts">
+
+	import Search from "./Search.svelte";
+  let showSearch = false; 
+</script>
+
+<nav class="mb-4 border-[2px] border-slate-100 rounded-lg fixed w-screen {showSearch ? 'bg-transparent text-transparent' : 'backdrop-blur-sm bg-white/50'}">
   <div class="container mx-auto flex items-center justify-between px-2 h-16">
     <a href="/" class="flex items-center ml-2">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-3">
@@ -8,5 +14,8 @@
         rand0m
       </span>
     </a>
+    <div>
+      <Search bind:showSearch/>
+    </div>
   </div>
 </nav>
