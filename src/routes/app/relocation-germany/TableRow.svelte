@@ -1,22 +1,32 @@
 <script lang="ts">
-	import { eurFormatter, inrFormatter } from "./utils";
+	import { eurFormatter, inrFormatter } from './utils';
 
-    export let baseValue: number; 
-    export let conversionRate: number; 
-    export let bgColor: string = "bg-transparent"; 
-    export let isNegative: boolean = false; 
-
+	let {
+		baseValue,
+		conversionRate,
+		bgColor = 'bg-transparent',
+		isNegative = false
+	}: {
+		baseValue: number;
+		conversionRate: number;
+		bgColor?: string;
+		isNegative?: boolean;
+	} = $props();
 </script>
 
-<td class="{bgColor}">
-    {#if isNegative }- {/if}{eurFormatter.format(baseValue)}
+<td class={bgColor}>
+	{#if isNegative}-
+	{/if}{eurFormatter.format(baseValue)}
 </td>
 <td class={bgColor}>
-    {#if isNegative }- {/if}{eurFormatter.format(baseValue/12)}
+	{#if isNegative}-
+	{/if}{eurFormatter.format(baseValue / 12)}
 </td>
 <td class={bgColor}>
-    {#if isNegative }- {/if}{inrFormatter.format(baseValue*conversionRate)}
+	{#if isNegative}-
+	{/if}{inrFormatter.format(baseValue * conversionRate)}
 </td>
 <td class={bgColor}>
-    {#if isNegative }- {/if}{inrFormatter.format((baseValue*conversionRate)/12)}
+	{#if isNegative}-
+	{/if}{inrFormatter.format((baseValue * conversionRate) / 12)}
 </td>

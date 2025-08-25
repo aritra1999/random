@@ -1,11 +1,10 @@
 <script lang="ts">
-	import type { PageData } from "./$types";
-    import SvelteMarkdown from 'svelte-markdown'
+	import type { PageData } from './$types';
+	import SvelteMarkdown from '@humanspeak/svelte-markdown';
 
-    export let data: PageData; 
+	let { data }: { data: PageData } = $props();
 </script>
 
 <div class="prose prose-lg mx-auto">
-    <SvelteMarkdown  source={data.content} />
+	<SvelteMarkdown source={data.content} />
 </div>
-

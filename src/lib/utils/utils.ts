@@ -3,7 +3,8 @@ import axios from 'axios';
 
 export const SEARCH_THRESHOLD = 1;
 
-const collectionJsonUrl = "https://raw.githubusercontent.com/aritra1999/shelf/master/rand0m/collection.json";
+const collectionJsonUrl =
+	'https://raw.githubusercontent.com/aritra1999/shelf/master/rand0m/collection.json';
 const iconMap: Record<string, string> = {
 	link: '🔗',
 	blog: '📄',
@@ -15,14 +16,14 @@ const iconMap: Record<string, string> = {
 };
 
 async function fetchGist(collection: Item[]): Promise<Item[]> {
-    for (let item of collection) {
-        if (item.type == 'gist')
-            item.description = await axios
-                .get(item.path)
-                .then((response) => response.data)
-                .catch((e) => '');
-    }
-    return collection;
+	for (let item of collection) {
+		if (item.type == 'gist')
+			item.description = await axios
+				.get(item.path)
+				.then((response) => response.data)
+				.catch((e) => '');
+	}
+	return collection;
 }
 
 export async function fetchCollection() {
@@ -30,7 +31,9 @@ export async function fetchCollection() {
 	const collection = await axios
 		.get(url)
 		.then((response) => response.data)
-		.then(async (response: Item[]) => { return await fetchGist(response)})
+		.then(async (response: Item[]) => {
+			return await fetchGist(response);
+		})
 		.catch((e) => []);
 
 	return collection;
