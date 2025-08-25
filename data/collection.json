@@ -1,0 +1,139 @@
+[
+	{
+		"id": "1614058d-2fe7-4730-cbcd-f6e3f416f63d",
+		"title": "Markdown Editor",
+		"description": "",
+		"tags": ["markdown"],
+		"icon": "👨‍💻",
+		"path": "markdownEditor",
+		"type": "application"
+	},
+	{
+		"id": "a9c651ba-175c-4bc9-9637-4ba19ad1d202",
+		"title": "Exchange",
+		"path": "exchange",
+		"icon": "💰",
+		"type": "application"
+	},
+	{
+		"id": "e1b696f8-975d-4b71-97a6-06c72f9a3cba",
+		"title": "BASE64 Encoder / Decoder",
+		"path": "base64EncoderDecoder",
+		"icon": "📟",
+		"type": "application"
+	},
+	{
+		"id": "1f2bc257-60f5-46b2-bbf2-cf472be71f55",
+		"title": "Tic Tac Toe",
+		"path": "ticTacToe",
+		"type": "game"
+	},
+	{
+		"id": "bfb38b9d-0bc4-4053-845d-313db265e5f2",
+		"title": "Design Systems / CSS Libraries",
+		"type": "linkList",
+		"tags": ["design system", "ui"],
+		"links": [
+			{
+				"title": "Flowbite",
+				"link": "https://flowbite.com/",
+				"logo": "https://flowbite.com/images/logo.svg"
+			},
+			{
+				"title": "TailwindCSS",
+				"link": "https://tailwindcss.com/",
+				"logo": "https://tailwindcss.com/favicons/favicon-32x32.png?v=3"
+			},
+			{
+				"title": "IBM Carbon",
+				"link": "https://carbondesignsystem.com/",
+				"logo": "https://carbondesignsystem.com/favicon-32x32.png"
+			},
+			{
+				"title": "IBM Carbon-svelte",
+				"link": "https://carbon-components-svelte.onrender.com/",
+				"logo": "https://carbon-components-svelte.onrender.com/favicon.ico"
+			},
+			{
+				"title": "PicoCSS",
+				"link": "https://picocss.com/",
+				"logo": "https://picocss.com/favicon.ico"
+			},
+			{
+				"title": "Github Primer",
+				"link": "https://primer.style/",
+				"logo": "https://primer.style/icons/icon-72x72.png"
+			},
+			{
+				"title": "Atlassian Desgin System",
+				"link": "https://atlassian.design/",
+				"logo": "https://atlassian.design/icons/icon-72x72.png?v=1a6878bd61904a7e0f2b06933be8d723"
+			}
+		]
+	},
+	{
+		"id": "2cedbd93-69bd-4b4e-95a0-f7adca5e0f11",
+		"title": "Blogs",
+		"type": "linkList",
+		"tags": ["system-design", "programming", "roadmap", "cheatsheet"],
+		"links": [
+			{
+				"title": "Cs.fyi",
+				"link": "https://cs.fyi/",
+				"logo": "https://cs.fyi/manifest/icon32.png"
+			},
+			{
+				"title": "Roadmap.sh",
+				"link": "https://roadmap.sh/",
+				"logo": "https://roadmap.sh/manifest/icon32.png"
+			},
+			{
+				"title": "Arpit Bhayani",
+				"link": "https://arpitbhayani.me/"
+			},
+			{
+				"title": "InDepth Dev - Angular",
+				"link": "https://indepth.dev/",
+				"logo": "https://indepth.dev/favicon.png"
+			}
+		]
+	},
+	{
+		"id": "ac150549-87c1-4401-ba34-a9bf77650946",
+		"title": "Deployment Resources",
+		"description": "Platforms that can be used for deploying or hosting projects that I personally use.",
+		"tags": ["Deployment", "Cloud"],
+		"type": "linkList",
+		"links": [
+			{
+				"title": "Vercel",
+				"link": "https://vercel.com/",
+				"logo": "https://camo.githubusercontent.com/add2c9721e333f0043ac938f3dadbc26a282776e01b95b308fcaba5afaf74ae3/68747470733a2f2f6173736574732e76657263656c2e636f6d2f696d6167652f75706c6f61642f76313538383830353835382f7265706f7369746f726965732f76657263656c2f6c6f676f2e706e67"
+			},
+			{
+				"title": "Supabase",
+				"link": "https://supabase.com/",
+				"logo": "https://supabase.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsupabase-logo-wordmark--dark.b36ebb5f.png&w=128&q=75"
+			},
+			{
+				"title": "Pocketbase",
+				"link": "https://pocketbase.io/",
+				"logo": "https://pocketbase.io/images/logo.svg"
+			}
+		]
+	},
+	{
+		"id": "36b3e002-eb75-450b-bdde-8c0c53bcd963",
+		"title": "Dev Tools",
+		"description": "Collection of dev tools",
+		"tags": ["tools"],
+		"links": [
+			{
+				"title": "Locust",
+				"link": "https://locust.io/",
+				"logo": "https://avatars.githubusercontent.com/u/2641063?s=48&v=4"
+			}
+		],
+		"type": "linkList"
+	}
+]
