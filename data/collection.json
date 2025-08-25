@@ -23,12 +23,6 @@
 		"type": "application"
 	},
 	{
-		"id": "1f2bc257-60f5-46b2-bbf2-cf472be71f55",
-		"title": "Tic Tac Toe",
-		"path": "ticTacToe",
-		"type": "game"
-	},
-	{
 		"id": "bfb38b9d-0bc4-4053-845d-313db265e5f2",
 		"title": "Design Systems / CSS Libraries",
 		"type": "linkList",
